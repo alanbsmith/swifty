@@ -14,9 +14,10 @@ var bot = new SlackBot({
 });
 
 app.post('/', function(req,res) {
-  console.log(req.body.text) //keyword, initiator, partner
   if (req.body.text === 'pair') {
     bot.postMessageToChannel('swiftly', "pairing!")
+  } else {
+    console.log(req.body.text);
   }
   res.send({status: "ok"});
 });
