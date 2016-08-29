@@ -15,9 +15,9 @@ var bot = new SlackBot({
 
 app.post('/', function(req,res) {
   if (req.body.text === 'pair') {
-    bot.postMessageToChannel('swiftly', "pairing!");
+    bot.postMessageToChannel('swiftly', "first option");
   } else if (req.body.text === 'list') {
-    bot.postMessageToChannel('swiftly', "listing!");
+    bot.postMessageToChannel('swiftly', "second option");
   }
   res.send({status: "ok"});
 });
