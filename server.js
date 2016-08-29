@@ -3,30 +3,15 @@ var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
 var bodyParser = require('body-parser');
-var SlackBot = require('slackbots');
-
+var controllers = require('./app/controllers/index');
+var Swifty = require('./app/services/swifty');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var bot = new SlackBot({
-    token: process.env.SWIFTY_BOT_TOKEN, // Add a bot https://my.slack.com/services/new/bot and put the token
-    name: process.env.SWIFTY_BOT_NAME
-});
+// routes
+app.post('/pairs', controllers.pairs.index)
+app.post('/pairs/create', controllers.pairs.create);
 
-app.post('/', function(req,res) {
-  switch (req.body.text) {
-    case 'pair':
-      bot.postMessageToChannel('swiftly', "first option");
-      break;
-    case 'list':
-      bot.postMessageToChannel('swiftly', "second option");
-      break;
-    case 'help':
-      bot.postMessageToChannel('swiftly', "third option");
-      break;
-  }
-  res.send({status: "ok"});
-});
 
 app.post('/feedback', function(req,res) {
   console.log(req.query);
@@ -34,8 +19,8 @@ app.post('/feedback', function(req,res) {
   var pairPartner = req.query.text.split("@")[1].split(" ")[0];
   var pairInitiater = req.query.user_name;
   console.log(pairPartner, pairInitiater);
-  bot.postMessageToUser(pairPartner,  pairInitiater + " said they were pairing with you! Have fun!");
-  bot.postMessageToUser(pairInitiater, "your pairing session has been logged. Be cool to " + pairPartner);
+  Swifty.postToUser(pairPartner,  pairInitiater + " said they were pairing with you! Have fun!");
+  Swifty.postToUser(pairInitiater, "your pairing session has been logged. Be cool to " + pairPartner);
 });
 
 var server = app.listen(PORT, function() {
