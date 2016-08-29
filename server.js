@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -8,12 +9,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var bot = new SlackBot({
-    token: 'add_your_token_here', // Add a bot https://my.slack.com/services/new/bot and put the token
-    name: 'Taylor Swifty'
+    token: process.env.SWIFTY_BOT_TOKEN, // Add a bot https://my.slack.com/services/new/bot and put the token
+    name: process.env.SWIFTY_BOT_NAME
 });
 
-app.get('/', function(req,res) {
-  console.log(req.body.text)
+app.post('/', function(req,res) {
+  console.log(req.body.text) //keyword, initiator, partner
   bot.postMessageToChannel('swiftly', "hello!")
   res.send({status: "ok"});
 })
