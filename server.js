@@ -18,12 +18,19 @@ app.post('/', function(req,res) {
   // bot.postMessageToChannel('swiftly', "hello!")
   // switch (req.body.text) {
   //   case 'pair':
-  //     return bot.postMessageToChannel('swiftly', 'paired');
+  //     bot.postMessageToChannel('swiftly', 'paired');
+  //     break;
   //   default:
-  //     return bot.postMessageToChannel('swiftly', req.body.text);
+  //     bot.postMessageToChannel('swiftly', req.body.text);
+  //     break;
+  // }
+  // if (req.body.text === 'pair') {
+  //   bot.postMessageToChannel('swiftly', 'paired');
+  // } else {
+  //   bot.postMessageToChannel('swiftly', req.body.text);
   // }
   res.send({status: "ok"});
-})
+});
 
 app.post('/feedback', function(req,res) {
   console.log(req.query);
