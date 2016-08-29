@@ -7,6 +7,7 @@ var bot = new SlackBot({
 
 var Swifty = {
   postToChannel: function(channelName, message) {
+    // console.log('hello from swifty!')
     bot.postMessageToChannel(channelName, message);
   },
   postToUser: function(userName, message) {

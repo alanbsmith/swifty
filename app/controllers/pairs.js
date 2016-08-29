@@ -1,4 +1,4 @@
-var Swifty = '../services/swifty';
+var Swifty = require('../services/swifty');
 var PairsController = {};
 
 PairsController.index = function(req, res) {
