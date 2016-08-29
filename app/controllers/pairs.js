@@ -16,7 +16,7 @@ PairsController.create = function(req, res) {
   // pair command
   // create a new pair
   var partner = req.body.text.split("<")[1].split(">")[0];
-  Swifty.postToUser(partner, "you're pairing with @" + req.body.user_name);
+  Swifty.postToUser('dushyant', "you're pairing with @" + req.body.user_name);
   Swifty.postToChannel('swiftly', 'controller: create!');
   res.send({status: "ok"});
 };
