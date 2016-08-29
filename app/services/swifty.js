@@ -10,6 +10,7 @@ var Swifty = {
     bot.postMessageToChannel(channelName, message);
   },
   postToUser: function(userName, message) {
+    console.log(bot.getUsers()['_value']['members'][0])
     bot.postMessageToUser(userName, message, {link_names: '1'});
   }
 };
