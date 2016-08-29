@@ -2,6 +2,7 @@ var Swifty = require('../services/swifty');
 var PairsController = {};
 
 PairsController.index = function(req, res) {
+  console.log(req.query)
   // list command
   // should return a list of all the pairs
   Swifty.postToChannel('swiftly', 'controller: index!');
