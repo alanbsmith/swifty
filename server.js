@@ -15,7 +15,13 @@ var bot = new SlackBot({
 
 app.post('/', function(req,res) {
   console.log(req.body.text) //keyword, initiator, partner
-  bot.postMessageToChannel('swiftly', "hello!")
+  // bot.postMessageToChannel('swiftly', "hello!")
+  // switch (req.body.text) {
+  //   case 'pair':
+  //     return bot.postMessageToChannel('swiftly', 'paired');
+  //   default:
+  //     return bot.postMessageToChannel('swiftly', req.body.text);
+  // }
   res.send({status: "ok"});
 })
 
