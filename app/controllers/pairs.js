@@ -4,14 +4,14 @@ var PairsController = {};
 PairsController.index = function(req, res) {
   // list command
   // should return a list of all the pairs
-  Swifty.postToChannel('swiftly', 'pair controller: index!');
+  Swifty.postToChannel('swiftly', 'controller: index!');
   res.send({status: "ok"});
 };
 
 PairsController.create = function(req, res) {
   // pair command
   // create a new pair
-  Swifty.postToChannel('swiftly', 'pair controller: create!');
+  Swifty.postToChannel('swiftly', 'controller: create!');
   res.send({status: "ok"});
 };
 
