@@ -2,9 +2,10 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var PORT = process.env.PORT || 8080;
-var bodyParser = require('body-parser');
 var controllers = require('./app/controllers/index');
 var Swifty = require('./app/services/swifty');
+
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
