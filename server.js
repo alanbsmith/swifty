@@ -14,10 +14,16 @@ var bot = new SlackBot({
 });
 
 app.post('/', function(req,res) {
-  if (req.body.text === 'pair') {
-    bot.postMessageToChannel('swiftly', "first option");
-  } else if (req.body.text === 'list') {
-    bot.postMessageToChannel('swiftly', "second option");
+  switch (req.body.text) {
+    case 'pair':
+      bot.postMessageToChannel('swiftly', "first option");
+      break;
+    case 'list':
+      bot.postMessageToChannel('swiftly', "second option");
+      break;
+    case 'help':
+      bot.postMessageToChannel('swiftly', "third option");
+      break;
   }
   res.send({status: "ok"});
 });
