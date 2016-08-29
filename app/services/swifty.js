@@ -10,7 +10,7 @@ var Swifty = {
     bot.postMessageToChannel(channelName, message);
   },
   postToUser: function(userName, message) {
-    bot.postMessageToUser(userName, message);
+    bot.postMessageToUser(userName, message, {parse: 'full'});
   }
 };
 
