@@ -16,11 +16,10 @@ var bot = new SlackBot({
 app.post('/', function(req,res) {
   if (req.body.text === 'pair') {
     bot.postMessageToChannel('swiftly', "pairing!");
-    res.send({status: "ok"});
-  } else {
-    bot.postMessageToChannel('swiftly', "not pairing!");
-    res.send({status: "ok"});
+  } else if (req.body.text === 'list') {
+    bot.postMessageToChannel('swiftly', "listing!");
   }
+  res.send({status: "ok"});
 });
 
 app.post('/feedback', function(req,res) {
